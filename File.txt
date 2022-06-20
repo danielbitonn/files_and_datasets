@@ -1,1 +1,2 @@
 DanielBitonn studying git
+new update in "new_branch"
