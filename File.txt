@@ -1,2 +1,6 @@
 DanielBitonn studying git
+<<<<<<< HEAD
 without the "new_branch"
+=======
+new update in "new_branch"
+>>>>>>> new_branch
