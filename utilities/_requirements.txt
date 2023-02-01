@@ -16,8 +16,8 @@ openpyxl==3.0.10
 jellyfish==0.9.0
 
 ### EDA
-seaborn==0.12.2
 sweetviz
+seaborn==0.12.2
 matplotlib
 plotly
 plotly.express
