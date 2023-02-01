@@ -1,6 +1,9 @@
 # System
+ipython-autotime
+watermark
 requests
 datetime
+
 
 # Basic packages
 numpy
@@ -8,16 +11,20 @@ pandas
 scipy
 
 # Files
+xlrd
+openpyxl
+jellyfish
 
 # EDA
 seaborn
 matplotlib
 plotly
+plotly.express
 sweetviz
 
 # ML
 sklearn
-
+imblearn
 
 # NN
 openai
