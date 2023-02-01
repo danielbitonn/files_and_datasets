@@ -34,6 +34,15 @@ def mf_quick_analysis(df):
 ################################################################################
 ################################################################################
 
+def mf_get_files_from_git(_fileName, _fileLink):
+  with open(f'{_fileName}', 'w') as f:
+    f.write(requests.get(f'{_fileLink}').text)
+  print(f'{_fileName} Create!')
+
+################################################################################
+################################################################################
+################################################################################
+
 def mf_html_creation_display(df, display=0):
   """
   HTML creation
@@ -48,4 +57,7 @@ def mf_html_renaming(name):
   if n_name in os.listdir():
     os.remove(n_name);
   os.rename("SWEETVIZ_REPORT.html", n_name)
+  
+  
+
   
