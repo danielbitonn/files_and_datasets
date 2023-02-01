@@ -37,8 +37,8 @@ def mf_quick_analysis(df):
 def mf_get_files_from_git(_fileName, _fileLink):
   """
   *including extension
-  with open('_requirements.txt', 'w') as f:
-    f.write(requests.get('_fileLink').text)
+  with open({_fileName}, 'w') as f:
+    f.write(requests.get({_fileLink}).text)
   """
   with open(f'{_fileName}', 'w') as f:
     f.write(requests.get(f'{_fileLink}').text)
