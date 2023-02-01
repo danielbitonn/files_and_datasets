@@ -19,15 +19,15 @@ openai
 sweetviz
 
 ### EDA
-seaborn==0.12.2
+#seaborn==0.12.2
 matplotlib
 plotly
 plotly.express
 
 ### ML
-sklearn==1.21.4
+#sklearn==1.21.4
 imblearn
 
 ### NN
-transformers==4.25.1
+#transformers==4.25.1
 nltk
