@@ -27,8 +27,7 @@ def mf_quick_analysis(df):
       mode = df[column].mode()[0] 
       print(f'{column} :  {mode}')
   
-#   rep = sv.DataframeReport(df)
-  rep = sv.analyze(df)
+  rep = sv.DataframeReport(df)
   rep.show_notebook()
   rep.show_html()
   return rep, df.columns.tolist()
@@ -50,21 +49,3 @@ def mf_get_files_from_git(_fileName, _fileLink):
 ################################################################################
 ################################################################################
 
-def mf_html_creation_display(df, display=0):
-  """
-  HTML creation
-  """
-  my_report = sv.analyze(df);
-  my_report.show_html();
-  
-################################################################################
-
-def mf_html_renaming(name):
-  n_name = name + ".html"
-  if n_name in os.listdir():
-    os.remove(n_name);
-  os.rename("SWEETVIZ_REPORT.html", n_name)
-  
-  
-
-  
