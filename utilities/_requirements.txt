@@ -1,32 +1,32 @@
 # System
-ipython-autotime
-watermark
+#ipython-autotime
+#watermark
 requests
-datetime
-os
+#datetime
+#os
 
 # Basic packages
 numpy
 pandas
-scipy
+#scipy
 
 # Files
-xlrd
-openpyxl
-jellyfish
+#xlrd
+#openpyxl
+#jellyfish
 
 # EDA
 seaborn
 matplotlib
 plotly
-plotly.express
+#plotly.express
 sweetviz
 
 # ML
 sklearn
-imblearn
+#imblearn
 
 # NN
-openai
-transformers
-nltk
+#openai
+#transformers
+#nltk
