@@ -37,7 +37,7 @@ def mf_quick_analysis(df):
 def mf_get_files_from_git(_fileName, _fileLink):
   with open(f'{_fileName}', 'w') as f:
     f.write(requests.get(f'{_fileLink}').text)
-  print(f'{_fileName} Create!')
+  print(f'\n{_fileName} has been created!')
 
 ################################################################################
 ################################################################################
