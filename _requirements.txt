@@ -1,0 +1,7 @@
+# Basic packages
+pandas as pd
+matplotlib.pyplot
+seaborn
+
+# EDA
+sweetviz
