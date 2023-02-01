@@ -1,1 +1,1 @@
-!pip install --quiet sweetviz
+pip install --quiet sweetviz
