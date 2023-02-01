@@ -15,7 +15,7 @@ def mf_quick_analysis(df):
   print("\n-------------****----------------\n\n >>> Unique values:")
   print(df.nunique())
   print("\n-------------****----------------\n\n >>> Describes:")
-  print(df.describe())
+  print(df.describe().T)
   print("\n-------------****----------------\n\n >>> Rows and Columns:")
   print(df.shape)
   print("\n-------------****----------------\n\n >>> The most often appears (.mode()) in the categorical columns, and the average (.mean()) for the continuous")
@@ -28,7 +28,8 @@ def mf_quick_analysis(df):
       print(f'{column} :  {mode}')
   
   sv.DataframeReport(df).show_notebook()
-  return
+  
+  return sv.DataframeReport(df), df.columns() 
 ################################################################################
 ################################################################################
 ################################################################################
