@@ -1,6 +1,6 @@
 # Basic packages
 pandas
-matplotlib.pyplot
+matplotlib
 seaborn
 
 # EDA
