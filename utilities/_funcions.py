@@ -45,13 +45,13 @@ def mf_html_creation_display(df, name, display=0):
   HTML creation
   """
   my_report = sv.analyze(df);
-  n_name = name + ".html"
   my_report.show_html();
+  
+################################################################################
+
+def mf_html_renaming(name):
+  n_name = name + ".html"
   if n_name in os.listdir():
     os.remove(n_name);
-
   os.rename("SWEETVIZ_REPORT.html", n_name)
-  if display==1:
-    print(n_name)
-    return IPython.display.HTML(filename = n_name)
-  return
+  
