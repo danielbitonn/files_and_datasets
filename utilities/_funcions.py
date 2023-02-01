@@ -15,7 +15,7 @@ def mf_quick_analysis(df, sweetviz=False):
   print("\n-------------****----------------\n\n >>> Unique values:")
   print(df.nunique())
   print("\n-------------****----------------\n\n >>> Describes:")
-  print(df.describe().T)
+  print(df.describe())
   print("\n-------------****----------------\n\n >>> Rows and Columns:")
   print(df.shape)
   print("\n-------------****----------------\n\n >>> The most often appears (.mode()) in the categorical columns, and the average (.mean()) for the continuous")
