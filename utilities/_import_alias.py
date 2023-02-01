@@ -24,7 +24,7 @@ import yaml
 ### EDA
 import matplotlib.pyplot as plt
 import seaborn as sns
-# import sweetviz as sv
+import sweetviz as sv
 
 ### ML
 from sklearn.metrics import mean_squared_error, r2_score
