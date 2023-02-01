@@ -52,5 +52,6 @@ def mf_html_creation_display(df, name, display=0):
 
   os.rename("SWEETVIZ_REPORT.html", n_name)
   if display==1:
+    print(n_name)
     return IPython.display.HTML(filename = n_name)
   return
