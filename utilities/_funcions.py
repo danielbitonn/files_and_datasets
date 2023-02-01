@@ -8,10 +8,6 @@ def mf_quick_analysis(df):
   """
   print(" >>> Data info:")
   print(df.info())
-  print("-------------****----------------\n\nData Types:")
-  print(df.dtypes)
-  print("-------------****----------------\n\nColumn names:")
-  print(df.columns)
   print("\n-------------****----------------\n\n >>> Null Values:")
   print(df.isnull().sum())
   print("\n-------------****----------------\n\n >>> Precentage of Nulls Values:")
@@ -19,7 +15,7 @@ def mf_quick_analysis(df):
   print("\n-------------****----------------\n\n >>> Unique values:")
   print(df.nunique())
   print("\n-------------****----------------\n\n >>> Describes:")
-  print(df.describe().T)
+  print(df.describe())
   print("\n-------------****----------------\n\n >>> Rows and Columns:")
   print(df.shape)
   print("\n-------------****----------------\n\n >>> The most often appears (.mode()) in the categorical columns, and the average (.mean()) for the continuous")
@@ -31,7 +27,7 @@ def mf_quick_analysis(df):
       mode = df[column].mode()[0] 
       print(f'{column} :  {mode}')
   
-  mf_html_creation_display(df);
+  sv.DataframeReport(df).show_notebook()
   return
 ################################################################################
 ################################################################################
