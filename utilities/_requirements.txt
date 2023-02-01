@@ -15,8 +15,10 @@ xlrd==1.0.0
 openpyxl==3.0.10
 jellyfish==0.9.0
 
-### EDA
+openai
 sweetviz
+
+### EDA
 seaborn==0.12.2
 matplotlib
 plotly
@@ -27,6 +29,5 @@ sklearn==1.21.4
 imblearn
 
 ### NN
-openai
 transformers==4.25.1
 nltk
