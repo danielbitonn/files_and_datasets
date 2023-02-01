@@ -8,10 +8,10 @@ def mf_quick_analysis(df):
   """
   print(" >>> Data info:")
   print(df.info())
-  # print("-------------****----------------\n\nData Types:")
-  # print(df.dtypes)
-  # print("-------------****----------------\n\nColumn names:")
-  # print(df.columns)
+  print("-------------****----------------\n\nData Types:")
+  print(df.dtypes)
+  print("-------------****----------------\n\nColumn names:")
+  print(df.columns)
   print("\n-------------****----------------\n\n >>> Null Values:")
   print(df.isnull().sum())
   print("\n-------------****----------------\n\n >>> Precentage of Nulls Values:")
@@ -30,12 +30,14 @@ def mf_quick_analysis(df):
     elif df[column].dtype == 'O':
       mode = df[column].mode()[0] 
       print(f'{column} :  {mode}')
-      
+  
+  mf_html_creation_display(df);
+  return
 ################################################################################
 ################################################################################
 ################################################################################
 
-def mf_html_creation_display(df, name, display=0):
+def mf_html_creation_display(df, display=0):
   """
   HTML creation
   """
