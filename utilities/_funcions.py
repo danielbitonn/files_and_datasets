@@ -27,9 +27,9 @@ def mf_quick_analysis(df):
       mode = df[column].mode()[0] 
       print(f'{column} :  {mode}')
   
-  sv.DataframeReport(df).show_notebook()
-  
-  return sv.DataframeReport(df), df.columns() 
+  rep = sv.DataframeReport(df)
+  rep.show_notebook()
+  return rep, df.columns() 
 ################################################################################
 ################################################################################
 ################################################################################
