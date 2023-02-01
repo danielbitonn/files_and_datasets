@@ -1,7 +1,6 @@
 # System
 requests
 datetime
-os
 
 # Basic packages
 numpy
