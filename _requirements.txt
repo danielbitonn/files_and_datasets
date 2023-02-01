@@ -1,5 +1,5 @@
 # Basic packages
-pandas as pd
+pandas
 matplotlib.pyplot
 seaborn
 
