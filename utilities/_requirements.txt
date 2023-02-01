@@ -1,8 +1,30 @@
-# Basic packages
-pandas
-matplotlib
-seaborn
+### System
+ipython-autotime
+watermark
 requests
+datetime
+os
 
-# EDA
+### Basic packages
+numpy
+pandas
+
+### Files
+xlrd==1.0.0
+openpyxl==3.0.10
+jellyfish==0.9.0
+
+### EDA
+seaborn==0.12.2
 sweetviz
+matplotlib
+plotly
+plotly.express
+
+### ML
+sklearn==1.21.4
+
+### NN
+openai
+transformers==4.25.1
+nltk
