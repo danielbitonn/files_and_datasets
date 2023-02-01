@@ -2,7 +2,7 @@
 ################################################################################
 ################################################################################
 
-def mf_quick_analysis(df):
+def mf_quick_analysis(df, sweetviz=False):
   """
   DataTypes, Rows and Columns ,Null values, Unique values ...
   """
@@ -26,11 +26,11 @@ def mf_quick_analysis(df):
     elif df[column].dtype == 'O':
       mode = df[column].mode()[0] 
       print(f'{column} :  {mode}')
-  
-  rep = sv.DataframeReport(df)
-  rep.show_notebook()
-  rep.show_html()
-  return rep, df.columns.tolist()
+  if sweetviz:
+    rep = sv.DataframeReport(df)
+    rep.show_notebook()
+    rep.show_html()
+    return rep
 ################################################################################
 ################################################################################
 ################################################################################
