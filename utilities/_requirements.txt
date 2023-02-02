@@ -10,7 +10,6 @@ numpy
 pandas
 scipy
 
-
 # Files
 xlrd
 openpyxl
