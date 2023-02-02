@@ -3,11 +3,13 @@ ipython-autotime
 watermark
 requests
 datetime
+beeprint
 
 # Basic packages
 numpy
 pandas
 scipy
+
 
 # Files
 xlrd
