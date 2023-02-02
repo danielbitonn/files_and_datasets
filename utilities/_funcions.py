@@ -49,46 +49,47 @@ def mf_get_files_from_git(_fileName, _fileLink):
 ################################################################################
 ################################################################################
 
-class pre_process:
+class myc_classify_features:
   def __init__(self):
-    self.feat_clf = {
-        'numeric': {    
-        # 'dataTypes':[np.int64, np.float64],
-                        'continuous'  :[],     # Floats
-                        'binary'      :[],     # 0/1
-                        'nominal'     :[]      # Integers
-        },
-        'qualitative': {
-        # 'dataTypes':[object, str],
-                        'categorial'  :[],     # Groups,
-                        'ordinal'     :[],     # Rank, 
-                        'boolean'     :[],     # Positive/Negative, True/False
-                        'nominal'     :[]      # IDs,
-        },
-        'timeSeries': { 
-        # 'dataTypes':[np.datetime64],
-                        'datetime'    :[],    
-                        'timedelta'   :[], 
-                        'objecttime'  :[]
-        },
-        'other':      {
-                        'other'       :[],
-                        'garbage'     :[],
-                        'target'      :[]
-        }
-    }
-    
-    self.feat_clas = [clas for clas, item in self.feat_clf.items()]
-    self.feat_sub_clas = [[clas,typ] for clas in self.feat_clas for typ, cont in self.feat_clf[clas].items()]
+                    self.q_flag = 0
+                    self.feat_clf = {
+                        'numeric': {    
+                        # 'dataTypes':[np.int64, np.float64],
+                                        'continuous'  :set(),     # Floats
+                                        'binary'      :set(),     # 0/1
+                                        'nominal'     :set()      # Integers
+                        },
+                        'qualitative': {
+                        # 'dataTypes':[object, str],
+                                        'categorial'  :set(),     # Groups,
+                                        'ordinal'     :set(),     # Rank, 
+                                        'boolean'     :set(),     # Positive/Negative, True/False
+                                        'discrete'    :set()      # IDs,
+                        },
+                        'timeSeries': { 
+                        # 'dataTypes':[np.datetime64],
+                                        'datetime'    :set(),    
+                                        'timedelta'   :set(), 
+                                        'objecttime'  :set()
+                        },
+                        'other':      {
+                                        'other'       :set(),
+                                        'garbage'     :set(),
+                                        'target'      :set()
+                        }
+                    }
+                    
+                    self.feat_clas = [clas for clas, item in self.feat_clf.items()]
+                    self.feat_sub_clas = [[clas,typ] for clas in self.feat_clas for typ, cont in self.feat_clf[clas].items()]
 
-    for clas, item in self.feat_clf.items():
-      print(clas,':')  
-      for typ, content in item.items():
-        print(typ, ' >>> ' ,content)
-      print()
+                    for clas, item in self.feat_clf.items():
+                      print(clas,':')  
+                      for typ, content in item.items():
+                        print(typ, ' >>> ' ,content)
+                      print()
 
 
-  def _update_feat_clf(self, col_name):
+  def mycf_update_feat_clf(self, col_name):
     """
     class: 'numeric', 'qualitative', 'timeSeries', 'other' 
     """
@@ -97,25 +98,31 @@ class pre_process:
     # Functions
     self._user_input()
     self._append_column()
-
-
+    
   def _user_input(self):
+    self.q_flag=0;
     print(f'Choose the dataType of the column\n{self.col_name}\
             \nChoose a Number from the following:\n')
     for i, x in enumerate(self.feat_sub_clas):
       print(i, x)
-    
     try:
       self.input = input('\n\n >>> Press Q/q to stop.\n')
     except KeyboardInterrupt:
       self.input = self.feat_sub_clas.index(["other", "other"])
 
-  
+    if self.input=='Q' or self.input=='q':
+      self.q_flag=1;
+    elif int(self.input) >= len(self.feat_sub_clas):
+      self._user_input()
+
   def _append_column(self):
     """
     #No >>> ['class', 'sub_class']
     """
-    self.feat_clf[self.feat_sub_clas[int(self.input)][0]][self.feat_sub_clas[int(self.input)][1]].append(self.col_name)
+    if self.q_flag==1:
+      pass;
+    else:
+      self.feat_clf[self.feat_sub_clas[int(self.input)][0]][self.feat_sub_clas[int(self.input)][1]].add(self.col_name)
 
 ################################################################################
 ################################################################################
