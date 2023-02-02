@@ -49,6 +49,7 @@ def mf_get_files_from_git(_fileName, _fileLink):
 ################################################################################
 ################################################################################
 
+
 class myc_classify_features:
   def __init__(self):
                     self.q_flag = 0
@@ -56,14 +57,14 @@ class myc_classify_features:
                         'numeric': {    
                         # 'dataTypes':[np.int64, np.float64],
                                         'continuous'  :set(),     # Floats
-                                        'binary'      :set(),     # 0/1
                                         'nominal'     :set()      # Integers
                         },
                         'qualitative': {
-                        # 'dataTypes':[object, str],
+                        # 'dataTypes':[object, str, np.int64],
                                         'categorial'  :set(),     # Groups,
                                         'ordinal'     :set(),     # Rank, 
                                         'boolean'     :set(),     # Positive/Negative, True/False
+                                        'binary'      :set(),     # 0/1
                                         'discrete'    :set()      # IDs,
                         },
                         'timeSeries': { 
