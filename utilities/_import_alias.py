@@ -15,6 +15,7 @@ from datetime import timedelta
 import pprint
 from beeprint import pp
 import logging
+# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(message)s', filename='/tmp/myapp.log', filemode='w')
 
 ### Files
 import json
