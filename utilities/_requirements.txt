@@ -23,7 +23,7 @@ plotly
 plotly.express
 
 # ML
-sklearn
+scikit-learn
 imblearn
 
 # NN
