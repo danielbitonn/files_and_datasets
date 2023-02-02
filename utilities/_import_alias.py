@@ -12,6 +12,8 @@ from numpy.linalg import norm
 import statistics
 from scipy import stats as stat
 import math
+import pprint
+from beeprint import pp
 
 ### Files
 import json
