@@ -3,6 +3,9 @@ import time
 import datetime
 from datetime import datetime as dt
 from datetime import timedelta
+import pprint
+from beeprint import pp
+import logging
 
 ### Basic packages
 import numpy as np
@@ -12,8 +15,7 @@ from numpy.linalg import norm
 import statistics
 from scipy import stats as stat
 import math
-import pprint
-from beeprint import pp
+
 
 ### Files
 import json
