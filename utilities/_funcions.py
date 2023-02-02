@@ -127,3 +127,41 @@ class myc_classify_features:
 ################################################################################
 ################################################################################
 ################################################################################
+
+class myc_numeric_eda:
+  def __init__(self):
+    """
+    Statistics: [mean, std, quartiles, distributions]
+    Methods:    [counting, frequencies, binarization, rounding, Fixed-Width Binning, Adaptive Binning, log Transform, Box-Cox Transform]
+    """
+    self.x = 10
+
+
+  def mycf_Binarization(self, df, counted_col, f_ts: float=0.9, i_ts: int=1, meth: int=1):
+    """
+    Conted column is required !!!
+    -----------------------------
+    meth:
+    1     | manually
+    2     | sklearn.Binarizer
+    thresholds: 
+    f_ts  | 0.1 to 1.0
+    i_ts  | 1   to 999
+    """
+    self.f_ts = f_ts
+    self.i_ts = i_ts
+    df = df.copy()
+
+    if meth==1:
+      npa_col = np.array(df[counted_col]) 
+      npa_col[npa_col >= self.i_ts] = 1
+      df[counted_col] = npa_col
+
+    elif meth==2:
+      from sklearn.preprocessing import Binarizer
+      bn = Binarizer(threshold=self.f_ts)
+      df[counted_col] = bn.transform([df[counted_col]])[0]
+
+    return df.reset_index(drop=True)
+
+
