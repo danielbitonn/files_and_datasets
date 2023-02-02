@@ -1,12 +1,3 @@
-### System
-import time
-import datetime
-from datetime import datetime as dt
-from datetime import timedelta
-import pprint
-from beeprint import pp
-import logging
-
 ### Basic packages
 import numpy as np
 import pandas as pd
@@ -16,6 +7,14 @@ import statistics
 from scipy import stats as stat
 import math
 
+### System
+import time
+import datetime
+from datetime import datetime as dt
+from datetime import timedelta
+import pprint
+from beeprint import pp
+import logging
 
 ### Files
 import json
