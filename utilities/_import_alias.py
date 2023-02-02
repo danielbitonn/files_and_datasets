@@ -25,7 +25,7 @@ import yaml
 ### EDA
 import matplotlib.pyplot as plt
 import scienceplots
-plt.style.use('science')
+# plt.style.use('science')
 import seaborn as sns
 import sweetviz as sv
 
