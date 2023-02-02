@@ -49,3 +49,74 @@ def mf_get_files_from_git(_fileName, _fileLink):
 ################################################################################
 ################################################################################
 
+class pre_process:
+  def __init__(self):
+    self.feat_clf = {
+        'numeric': {    
+        # 'dataTypes':[np.int64, np.float64],
+                        'continuous'  :[],     # Floats
+                        'binary'      :[],     # 0/1
+                        'nominal'     :[]      # Integers
+        },
+        'qualitative': {
+        # 'dataTypes':[object, str],
+                        'categorial'  :[],     # Groups,
+                        'ordinal'     :[],     # Rank, 
+                        'boolean'     :[],     # Positive/Negative, True/False
+                        'nominal'     :[]      # IDs,
+        },
+        'timeSeries': { 
+        # 'dataTypes':[np.datetime64],
+                        'datetime'    :[],    
+                        'timedelta'   :[], 
+                        'objecttime'  :[]
+        },
+        'other':      {
+                        'other'       :[],
+                        'garbage'     :[],
+                        'target'      :[]
+        }
+    }
+    
+    self.feat_clas = [clas for clas, item in self.feat_clf.items()]
+    self.feat_sub_clas = [[clas,typ] for clas in self.feat_clas for typ, cont in self.feat_clf[clas].items()]
+
+    for clas, item in self.feat_clf.items():
+      print(clas,':')  
+      for typ, content in item.items():
+        print(typ, ' >>> ' ,content)
+      print()
+
+
+  def _update_feat_clf(self, col_name):
+    """
+    class: 'numeric', 'qualitative', 'timeSeries', 'other' 
+    """
+    # Init
+    self.col_name = col_name;
+    # Functions
+    self._user_input()
+    self._append_column()
+
+
+  def _user_input(self):
+    print(f'Choose the dataType of the column\n{self.col_name}\
+            \nChoose a Number from the following:\n')
+    for i, x in enumerate(self.feat_sub_clas):
+      print(i, x)
+    
+    try:
+      self.input = input('\n\n >>> Press Q/q to stop.\n')
+    except KeyboardInterrupt:
+      self.input = self.feat_sub_clas.index(["other", "other"])
+
+  
+  def _append_column(self):
+    """
+    #No >>> ['class', 'sub_class']
+    """
+    self.feat_clf[self.feat_sub_clas[int(self.input)][0]][self.feat_sub_clas[int(self.input)][1]].append(self.col_name)
+
+################################################################################
+################################################################################
+################################################################################
