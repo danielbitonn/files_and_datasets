@@ -1,14 +1,14 @@
+# Basic packages
+numpy
+pandas
+scipy
+
 # System
 ipython-autotime
 watermark
 requests
 datetime
 beeprint
-
-# Basic packages
-numpy
-pandas
-scipy
 
 # Files
 xlrd
@@ -21,9 +21,11 @@ seaborn
 matplotlib
 plotly
 plotly.express
+scienceplots
 
 # ML
 scikit-learn
+sklearn
 imblearn
 
 # NN
