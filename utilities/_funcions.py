@@ -31,6 +31,7 @@ def mf_quick_analysis(df, sweetviz=False):
     rep.show_notebook()
     rep.show_html()
     return rep
+  
 ################################################################################
 ################################################################################
 ################################################################################
@@ -51,24 +52,51 @@ def mf_get_files_from_git(_fileName, _fileLink):
 
 
 class myc_classify_features:
+  """
+  This class support to identify the features types as a preperatoin for the EDA pahse.
+  """
+  
+
   def __init__(self):
+                    """
+                    numeric:      'dataTypes':[np.int64, np.float64]
+                    continuous    # Floats
+                    nominal       # Integers
+                    
+                    qualitative:  'dataTypes':[object, str, np.int64]
+                    categorical   # Groups,
+                    ordinal       # Rank, 
+                    boolean       # True/False,
+                    Binomial      # 0/1, True/False, Positive/Negative, heads/tails(coin)
+                    discrete      # IDs
+                    
+                    timeSeries:   'dataTypes':[np.datetime64],
+                    datetime      #
+                    timedelta     #
+                    objecttime    #
+
+                    other:      'dataTypes':[ ]
+                    other       #
+                    garbage     #
+                    target      #
+
+                    """
+                    
                     self.q_flag = 0
+                    
                     self.feat_clf = {
                         'numeric': {    
-                        # 'dataTypes':[np.int64, np.float64],
                                         'continuous'  :set(),     # Floats
                                         'nominal'     :set()      # Integers
                         },
                         'qualitative': {
-                        # 'dataTypes':[object, str, np.int64],
-                                        'categorial'  :set(),     # Groups,
+                                        'categorical'  :set(),    # Groups,
                                         'ordinal'     :set(),     # Rank, 
-                                        'boolean'     :set(),     # Positive/Negative, True/False
-                                        'binary'      :set(),     # 0/1
+                                        'boolean'     :set(),     # True/False
+                                        'Binomial'    :set(),     # 0/1, Positive/Negative, heads/tails(coin)
                                         'discrete'    :set()      # IDs,
                         },
                         'timeSeries': { 
-                        # 'dataTypes':[np.datetime64],
                                         'datetime'    :set(),    
                                         'timedelta'   :set(), 
                                         'objecttime'  :set()
@@ -82,12 +110,20 @@ class myc_classify_features:
                     
                     self.feat_clas = [clas for clas, item in self.feat_clf.items()]
                     self.feat_sub_clas = [[clas,typ] for clas in self.feat_clas for typ, cont in self.feat_clf[clas].items()]
+                    # pprint 
+                    # self.mycf_pprint()
 
-                    for clas, item in self.feat_clf.items():
-                      print(clas,':')  
-                      for typ, content in item.items():
-                        print(typ, ' >>> ' ,content)
-                      print()
+
+  def mycf_pprint(self):
+    for clas, item in self.feat_clf.items():
+        print(clas,':')  
+        for typ, content in item.items():
+          if len(content)==0:
+            content=''
+            print(typ, ' >>> ' ,content)
+          else:
+            print(typ, ' >>> ' ,content)
+        print()
 
 
   def mycf_update_feat_clf(self, col_name):
@@ -99,9 +135,9 @@ class myc_classify_features:
     # Functions
     self._user_input()
     self._append_column()
+
     
   def _user_input(self):
-    self.q_flag=0;
     print(f'Choose the dataType of the column\n{self.col_name}\
             \nChoose a Number from the following:\n')
     for i, x in enumerate(self.feat_sub_clas):
@@ -113,7 +149,7 @@ class myc_classify_features:
 
     if self.input=='Q' or self.input=='q':
       self.q_flag=1;
-    elif int(self.input) >= len(self.feat_sub_clas):
+    elif self.input=='' or int(self.input) >= len(self.feat_sub_clas):
       self._user_input()
 
   def _append_column(self):
@@ -121,21 +157,25 @@ class myc_classify_features:
     #No >>> ['class', 'sub_class']
     """
     if self.q_flag==1:
-      pass;
+      pass
     else:
       self.feat_clf[self.feat_sub_clas[int(self.input)][0]][self.feat_sub_clas[int(self.input)][1]].add(self.col_name)
 
+
 ################################################################################
 ################################################################################
 ################################################################################
 
+
 class myc_numeric_eda:
+  """
+  This class organize the methods in EDA phase. 
+  """
   def __init__(self):
     """
     Statistics: [mean, std, quartiles, distributions]
     Methods:    [counting, frequencies, binarization, rounding, Fixed-Width Binning, Adaptive Binning, log Transform, Box-Cox Transform]
     """
-    self.x = 10
 
 
   def mycf_Binarization(self, df, counted_col, f_ts: float=0.9, i_ts: int=1, meth: int=1):
@@ -164,5 +204,5 @@ class myc_numeric_eda:
       df[counted_col] = bn.transform([df[counted_col]])[0]
 
     return df.reset_index(drop=True)
-
+  
 
