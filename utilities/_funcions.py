@@ -54,7 +54,7 @@ def mf_get_files_from_git(_fileName, _fileLink):
   with open({_fileName}, 'w') as f:
     f.write(requests.get({_fileLink}).text)
   """
-  new_dir = func_get_conf('UTIL_DIR')'_utilities'
+  new_dir = func_get_conf('UTIL_DIR')
   try: 
     os.mkdir(f'{new_dir}')
   except FileExistsError: 
