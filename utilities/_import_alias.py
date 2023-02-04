@@ -32,20 +32,22 @@ import seaborn as sns
 import sweetviz as sv
 
 ### ML
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.tree import plot_tree
-from imblearn.combine import SMOTETomek
-import nltk
-nltk.download('nps_chat')
-nltk.download('punkt')
+from sklearn.metrics import mean_squared_error, r2_score
 
-### NN
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.impute import KNNImputer
+from imblearn.combine import SMOTETomek
+
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import plot_tree
+
+### NLP
+import nltk
+from nltk.tokenize import sent_tokenize
+nltk.download('nps_chat'), nltk.download('punkt')
 import openai
 from openai import Embedding
 import transformers
 from transformers import GPT2Config, GPT2Model, GPT2Tokenizer, GPT2TokenizerFast
 from typing import Set
-from nltk.tokenize import sent_tokenize
