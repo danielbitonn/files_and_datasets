@@ -42,11 +42,19 @@ def mf_get_files_from_git(_fileName, _fileLink):
   with open({_fileName}, 'w') as f:
     f.write(requests.get({_fileLink}).text)
   """
-  #TODO: insert into a folder by the path.
+  new_dir = '_utilities'
+  try: 
+    os.mkdir(f'{new_dir}')
+  except FileExistsError: 
+    pass
+
+  os.chdir(f'{os.getcwd()}\\{new_dir}')
+  
   with open(f'{_fileName}', 'w') as f:
     f.write(requests.get(f'{_fileLink}').text)
   print(f'\n{_fileName} has been created!')
-
+  
+  os.chdir(f'../')
 ################################################################################
 ################################################################################
 ################################################################################
