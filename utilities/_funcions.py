@@ -2,6 +2,18 @@
 ################################################################################
 ################################################################################
 
+def func_get_config(key_data):
+    try:
+        return yaml.load(open("_conf.yaml", 'r'), Loader=FullLoader)[key_data]
+    except yaml.YAMLError as e:
+        logging.error(f"_conf.yaml: {e}")
+        raise Exception
+
+
+################################################################################
+################################################################################
+################################################################################
+
 def mf_quick_analysis(df, sweetviz=False):
   """
   DataTypes, Rows and Columns ,Null values, Unique values ...
