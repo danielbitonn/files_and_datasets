@@ -1,4 +1,5 @@
 ### CONST PARAM
+UTIL_DIR:                 "_utilities"
 TS_MAX_TOKENS:            1900
 TS_SIMILARITY:            0.9
 TS_SMALL_SECTIONS_TOKENS: 40
