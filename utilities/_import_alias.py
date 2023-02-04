@@ -8,6 +8,7 @@ from scipy import stats as stat
 import math
 
 ### System
+import os
 import time
 import datetime
 from datetime import datetime as dt
