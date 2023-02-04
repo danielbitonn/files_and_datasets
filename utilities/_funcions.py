@@ -4,7 +4,7 @@
 
 def func_get_conf(key_data):
     try:
-        return yaml.load(open("_conf.yaml", 'r'), Loader=FullLoader)[key_data]
+        return yaml.load(open("_utilities\_conf.yaml", 'r'), Loader=FullLoader)[key_data]
     except yaml.YAMLError as e:
         logging.error(f"_conf.yaml: {e}")
         raise Exception
@@ -54,7 +54,7 @@ def mf_get_files_from_git(_fileName, _fileLink):
   with open({_fileName}, 'w') as f:
     f.write(requests.get({_fileLink}).text)
   """
-  new_dir = func_get_conf('UTIL_DIR')
+  new_dir = '_utilities'
   try: 
     os.mkdir(f'{new_dir}')
   except FileExistsError: 
