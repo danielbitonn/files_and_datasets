@@ -42,7 +42,8 @@ def mf_get_files_from_git(_fileName, _fileLink):
   with open({_fileName}, 'w') as f:
     f.write(requests.get({_fileLink}).text)
   """
-  with open(f'{_fileName}', 'w') as f:
+  #TODO: insert into a folder by the path.
+  with open(f'_utility/{_fileName}', 'w') as f:
     f.write(requests.get(f'{_fileLink}').text)
   print(f'\n{_fileName} has been created!')
 
